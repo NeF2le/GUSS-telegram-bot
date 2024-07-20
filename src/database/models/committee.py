@@ -7,11 +7,12 @@ from .base import Base
 class Committee(Base):
     __tablename__ = "committees"
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
-    name: Mapped[str] = mapped_column(String)
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column()
 
-    members: Mapped[list["Person"]] = relationship(
+    persons: Mapped[list["Person"]] = relationship(
         "Person",
         back_populates="committees",
-        secondary="committee_membership"
+        secondary="committee_membership",
+        lazy="selectin"
     )
