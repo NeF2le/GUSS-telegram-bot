@@ -32,6 +32,8 @@ class Database:
 
     async def check_membership(self, committee_id: int, person_id: int) -> bool:
         person = await self.get_person(id=person_id, join_committees=True)
+        if not person:
+            return False
         for committee in person.committees:
             if committee.id == committee_id:
                 return True
