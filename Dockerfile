@@ -5,3 +5,6 @@ RUN pip3 install --upgrade setuptools
 RUN pip3 install -r requirements.txt
 RUN chmod 755 .
 COPY . .
+
+RUN pwd
+RUN ls -la /app/GUSS-telegram-bot/src/database/migrations
