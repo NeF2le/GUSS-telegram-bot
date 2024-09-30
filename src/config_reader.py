@@ -4,11 +4,11 @@ import os
 
 
 class Settings(BaseSettings):
-    DB_HOST: str
-    DB_PORT: int
-    DB_USER: str
-    DB_PASS: str
-    DB_NAME: str
+    POSTGRES_HOST: str
+    POSTGRES_PORT: int
+    POSTGRES_USER: str
+    POSTGRES_PASSWORD: str
+    POSTGRES_DB: str
     BOT_TOKEN: SecretStr
     VK_TOKEN: SecretStr
     ADMIN_IDS: list[int]
@@ -25,7 +25,8 @@ class Settings(BaseSettings):
 
     @property
     def database_url_asyncpg(self):
-        return f"postgresql+asyncpg://{self.DB_USER}:{self.DB_PASS}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
+        return (f"postgresql+asyncpg://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}@{self.POSTGRES_HOST}:"
+                f"{self.POSTGRES_PORT}/{self.POSTGRES_DB}")
 
     @property
     def google_creds_path(self):
