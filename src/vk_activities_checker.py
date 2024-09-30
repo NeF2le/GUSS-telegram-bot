@@ -4,8 +4,8 @@ from typing import Any
 import pandas as pd
 from pandas import DataFrame
 
-from config_reader import settings
-from enums import ActivityType, ActionType
+from src.config_reader import settings
+from src.enums import ActivityType, ActionType
 from src.bot.utils import log_action, ContextData
 from src.api import VkAPI
 from src.database import Database
