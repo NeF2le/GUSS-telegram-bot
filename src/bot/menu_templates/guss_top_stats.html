@@ -1,0 +1,29 @@
+
+{% for category, persons in person_points_top.items() %}
+    <blockquote>
+        <b>{{ category }}</b>
+        <br>
+        {% for person in persons %}
+            {% set full_name = person[0] %}
+            {% set points = person[1] %}
+            <p>{{ loop.index }} место: {{ full_name }} {{ points }} {{ points_declension(points) }}</p>
+            <br>
+        {% endfor %}
+    </blockquote>
+{% endfor %}
+
+{% for committee in committees %}
+    <b>{{ committee.talisman }} {{ committee.name }} {{ committee.talisman }}</b>
+    {% for person in committee.persons %}
+        {% set vk_url = "https://vk.com/id{}".format(person.vk_id) %}
+        {% set person_full_name = person.first_name ~ " " ~ person.last_name %}
+        {% set person_points = get_person_points(person) %}
+            <p>◻️ <a href="{{ vk_url }}">{{ person_full_name }}</a></p>
+            <br>
+            {% for category, points in person_points.items() %}
+                <p>{{ category }}: {{ points }} {{ points_declension(points) }}</p>
+                <br>
+            {% endfor %}
+    {% endfor %}
+    <hr>
+{% endfor %}
