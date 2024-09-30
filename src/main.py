@@ -5,12 +5,12 @@ from aiogram import Bot
 from aiogram.enums import ParseMode
 from aiogram.client.bot import DefaultBotProperties
 
-from logging_ import logger
-from config_reader import settings
-from bot.custom_dispatcher import CustomDispatcher
-from bot.ui_commands import set_bot_commands
-from bot.middlewares import AdminUserMiddleware, ResourcesMiddleware, LogAllEventsMiddleware
-from bot import handlers, callbacks
+from src.logging_ import logger
+from src.config_reader import settings
+from src.bot.custom_dispatcher import CustomDispatcher
+from src.bot.ui_commands import set_bot_commands
+from src.bot.middlewares import AdminUserMiddleware, ResourcesMiddleware, LogAllEventsMiddleware
+from src.bot import handlers, callbacks
 from src.api import VkAPI, GoogleAPI, TelegraphAPI
 from src.vk_activities_checker import VkActivitiesChecker
 from src.database import Database
