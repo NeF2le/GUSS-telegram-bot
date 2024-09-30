@@ -1,0 +1,13 @@
+<b>◻️ {{person_first_name}} {{person_last_name}} ◻️</b>
+
+<b>Категория: <em>{{category_name}}</em></b>
+
+{% if current_state == 'UpdatePersonPoints:comment' -%}
+{% if comment -%}
+<b>Введенный комментарий: <code>{{comment}}</code></b>
+{% else -%}
+<b>Введи комментарий к изменению баллов</b>
+{% endif -%}
+{% else -%}
+<b>Неизвестное состояние</b>
+{% endif -%}

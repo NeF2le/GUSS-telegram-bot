@@ -1,0 +1,49 @@
+<b>◻️ Добавление человека в ГУСС-топ ◻️</b>
+
+{% if current_state == 'AddPerson:vk_url' -%}
+<b>Отправь ссылку на ВК</b>
+
+{% if error_valid -%}
+<b>❌ {{error_valid}} ❌</b>
+<b>Отправленная ссылка на ВК: <code>{{vk_url}}</code></b>
+{% endif -%}
+{% elif current_state == 'AddPerson:first_name' -%}
+<b>Ссылка на ВК: <code>{{vk_url}}</code></b>
+
+<b>Отправь имя</b>
+
+{% if error_valid -%}
+<b>❌ {{error_valid}} ❌</b>
+<b>Отправленное имя: <code>{{first_name}}</code></b>
+{% endif -%}
+{% elif current_state == 'AddPerson:last_name' -%}
+<b>Ссылка на ВК: <code>{{vk_url}}</code></b>
+
+<b>Имя: <code>{{first_name}}</code></b>
+
+<b>Отправь фамилию</b>
+
+{% if error_valid -%}
+<b>❌ {{error_valid}} ❌</b>
+<b>Отправленная фамилия: <code>{{last_name}}</code></b>
+{% endif -%}
+{% elif current_state == 'AddPerson:committee_name' -%}
+<b>Ссылка на ВК: <code>{{vk_url}}</code></b>
+
+<b>Имя: <code>{{first_name}}</code></b>
+
+<b>Фамилия: <code>{{last_name}}</code></b>
+
+{% if not all_valid -%}
+<b>Отправь название комитета</b>
+
+{% if error_valid -%}
+<b>❌ {{error_valid}} ❌</b>
+<b>Отправленный комитет: <code>{{committee_name}}</code></b>
+{% endif -%}
+{% else -%}
+<b>Комитет: <code>{{committee_name}}</code></b>
+{% endif -%}
+{% else -%}
+<b>Неизвестное состояние</b>
+{% endif -%}

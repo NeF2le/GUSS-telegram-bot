@@ -1,0 +1,18 @@
+<blockquote>
+    ✅ означает, что баллы за посещение мероприятия выставлены<br>
+    ❌ означает, что баллы не выставлены<br>
+    ❔ означает, что человек не состоит в {{committee_name}} или его нет в ГУСС-топе
+</blockquote>
+{% for person in table_persons %}
+    {% if person.points_added %}
+            {% set points_mark = '✅' %}
+    {% else %}
+        {% if not person.matched_person_id %}
+            {% set points_mark = '❔' %}
+        {% else %}
+            {% set points_mark = '❌' %}
+        {% endif %}
+    {% endif %}
+    <b>{{loop.index}}. {{person.full_name}} — {{points_mark}}</b>
+    <br>
+{% endfor %}

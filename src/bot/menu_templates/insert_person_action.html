@@ -1,0 +1,7 @@
+{% set first_name = new_data.get('first_name') %}
+{% set last_name = new_data.get('last_name') %}
+{% set vk_url = "https://vk.com/id{}".format(new_data.get('vk_id')) %}
+{% set committee = new_data.get('committees')[0].get('name') %}
+<p><em>Имя и фамилия:</em> {{ first_name }} {{ last_name }}</p><br>
+<p><em>Ссылка на ВК:</em> <a href="{{ vk_url }}">{{ vk_url }}</a></p><br>
+<p><em>Комитет:</em> {{ committee }}</p><br>

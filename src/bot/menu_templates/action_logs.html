@@ -1,0 +1,21 @@
+ {% for log in audit_logs %}
+    {% set action_type = log.action_type.value %}
+    {% set username = log.changed_by %}
+    {% set old_data = log.old_data %}
+    {% set new_data = log.new_data %}
+    {% set comment = log.comment %}
+    {% set changed_at = log.changed_at.strftime('%Y-%m-%d %H:%M:%S') %}
+        <p><b>{{loop.index}}. {{ action_type }} / {{ username }} / {{ changed_at }}</b></p><br>
+        {% if action_types(action_type) == action_types.INSERT_PERSON %}
+            {% include 'insert_person_action.html' %}
+        {% elif action_types(action_type) == action_types.DELETE_PERSON %}
+            {% include 'delete_person_action.html' %}
+        {% elif action_types(action_type) in [action_types.INSERT_MEMBERSHIP, action_types.UPDATE_MEMBERSHIP, action_types.DELETE_MEMBERSHIP] %}
+            {% include 'membership_action.html' %}
+        {% elif action_types(action_type) == action_types.UPDATE_PERSON_POINTS %}
+            {% include 'update_person_points_action.html' %}
+        {% elif action_types(action_type) in (action_types.UPDATE_PERSON_FIRST_NAME, action_types.UPDATE_PERSON_LAST_NAME) %}
+            {% include 'update_person_name_action.html' %}
+        {% endif %}
+        <hr>
+{% endfor %}

@@ -1,5 +1,5 @@
 from sqlalchemy import ForeignKey
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.orm import Mapped, mapped_column, relationship, validates
 
 from .base import Base
 
@@ -13,3 +13,9 @@ class PersonPoints(Base):
 
     person: Mapped["Person"] = relationship("Person", back_populates="points")
     category: Mapped["Category"] = relationship("Category", back_populates="persons_points")
+
+    @validates('points_value')
+    def validate_points_value(self, key, value):
+        if value < 0:
+            return 0
+        return value

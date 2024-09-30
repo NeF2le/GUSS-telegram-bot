@@ -1,0 +1,9 @@
+<b>◻️ {{person_first_name}} {{person_last_name}} ◻️</b>
+
+<b>Текущий комитет: <em>{{committee_name}}</em></b>
+
+{% if committees_cnt == 1 -%}
+<b>Выбери комитет, на который хочешь изменить текущий</b>
+{% elif committees_cnt == 2 -%}
+<b>Ты можешь изменить этот комитет на другой или удалить его</b>
+{% endif -%}

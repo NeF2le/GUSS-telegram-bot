@@ -1,0 +1,18 @@
+<b>◻️ Добавление таблицы с результатами регистраций в ГУСС-топ ◻️</b>
+
+<b>Выбранный тип мероприятия:</b> {{event_type}}
+
+{% if current_state == 'AddEventRegistrationTable:table_url' -%}
+{% if table_url -%}
+{% if error_valid -%}
+<b>❌ {{error_valid}} ❌</b>
+<b>Отправленная ссылка на таблицу: <code>{{table_url}}</code></b>
+{% else -%}
+<b>Cсылка на таблицу: <code>{{table_url}}</code></b>
+{% endif -%}
+{% else -%}
+<b>Отправь ссылку на таблицу с результатами регистраций</b>
+{% endif -%}
+{% else -%}
+<b>Неизвестное состояние</b>
+{% endif -%}

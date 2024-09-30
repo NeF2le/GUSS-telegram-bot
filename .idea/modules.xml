@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/GUSS-telegram-bot.iml" filepath="$PROJECT_DIR$/.idea/GUSS-telegram-bot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/GUSS_telegram_bot.iml" filepath="$PROJECT_DIR$/.idea/GUSS_telegram_bot.iml" />
     </modules>
   </component>
 </project>

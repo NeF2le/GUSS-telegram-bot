@@ -1,0 +1,17 @@
+<b>◻️ {{person_first_name}} {{person_last_name}} ◻️</b>
+
+{% set last_name = fsm_data.get('last_name') -%}
+{% set error_valid = fsm_data.get('error_valid') -%}
+{% set all_valid = fsm_data.get('all_valid') -%}
+
+{% if not all_valid -%}
+<b>Отправь новую фамилию</b>
+
+{% if error_valid -%}
+<b>❌ {{error_valid}} ❌</b>
+<b>Отправленная фамилия: <code>{{last_name}}</code></b>
+{% endif -%}
+
+{% else -%}
+<b>Новая фамилия: <code>{{last_name}}</code></b>
+{% endif -%}

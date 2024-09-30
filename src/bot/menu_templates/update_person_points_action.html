@@ -1,0 +1,38 @@
+{% set first_name = old_data.get('first_name') %}
+{% set last_name = old_data.get('last_name') %}
+{% set vk_url = "https://vk.com/id{}".format(old_data.get('vk_id')) %}
+{% set committees = [] %}
+{% for committee in old_data.get('committees') %}
+    {% do committees.append(committee.name) %}
+{% endfor %}
+{% set category = "" %}
+{% set categories_with_points = {} %}
+
+{% for new_points in new_data.get('points') %}
+    {% for old_points in old_data.get('points') %}
+        {% if new_points.get('category') == old_points.get('category') %}
+            {% do categories_with_points.update({new_points.get('category'): (old_points.get('points_value'), new_points.get('points_value'))}) %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+<p><em>Имя и фамилия:</em> {{ first_name }} {{ last_name }}</p><br>
+<p><em>Ссылка на ВК:</em> <a href="{{ vk_url }}">{{ vk_url }}</a></p><br>
+{% if committees|length == 1 %}
+    <p><em>Комитет:</em> {{ committees[0] }}</p><br>
+{% else %}
+    <p><em>Комитеты:</em> {{ committees|join(', ') }}</p><br>
+{% endif %}
+
+{% for category, points in categories_with_points.items() %}
+    {% set old_points = points[0] %}
+    {% set new_points = points[1] %}
+    {% if old_points != new_points %}
+        <p><em>Категория:</em> {{ category }}</p><br>
+        <p><em>Старые баллы:</em> {{ old_points }} {{ points_declension(old_points) }}</p><br>
+        <p><em>Новые баллы:</em> {{ new_points }} {{ points_declension(new_points) }}</p><br>
+        <p><em>Комментарий:</em> {{ comment }}</p><br>
+    {% endif %}
+{% endfor %}
+
+

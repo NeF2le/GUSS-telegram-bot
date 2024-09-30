@@ -1,0 +1,19 @@
+{% set first_name = old_data.get('first_name') %}
+{% set last_name = old_data.get('last_name') %}
+{% set vk_url = "https://vk.com/id{}".format(old_data.get('vk_id')) %}
+{% set committees = [] %}
+{% for committee in old_data.get('committees') %}
+    {% do committees.append(committee.name) %}
+{% endfor %}
+<p><em>Имя и фамилия:</em> {{ first_name }} {{ last_name }}</p><br>
+<p><em>Ссылка на ВК:</em> <a href="{{ vk_url }}">{{ vk_url }}</a></p><br>
+{% if committees|length == 1 %}
+    <p><em>Комитет:</em> {{ committees[0] }}</p><br>
+{% else %}
+    <p><em>Комитеты:</em> {{ committees|join(', ') }}</p><br>
+{% endif %}
+{% for points in old_data.get('points') %}
+    {% set category = points.get('category') %}
+    {% set points_value = points.get('points_value') %}
+    <p><em>{{ category }}:</em> {{ points_value }} {{ points_declension(points_value) }}</p><br>
+{% endfor %}

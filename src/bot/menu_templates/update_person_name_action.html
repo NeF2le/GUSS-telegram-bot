@@ -1,0 +1,27 @@
+{% set old_first_name = old_data.get('first_name') %}
+{% set old_last_name = old_data.get('last_name') %}
+{% set new_first_name = new_data.get('first_name') %}
+{% set new_last_name = new_data.get('last_name') %}
+{% set vk_url = "https://vk.com/id{}".format(old_data.get('vk_id')) %}
+{% set committees = [] %}
+{% for committee in old_data.get('committees') %}
+    {% do committees.append(committee.name) %}
+{% endfor %}
+
+{% if action_types(action_type) == action_types.UPDATE_PERSON_FIRST_NAME %}
+    <p><em>Старое имя:</em> {{ old_first_name }}</p><br>
+    <p><em>Новое имя:</em> {{ new_first_name }}</p><br>
+    <p><em>Фамилия:</em> {{ old_last_name }}</p><br>
+    <p><em>Ссылка на ВК:</em> <a href="{{ vk_url }}">{{ vk_url }}</a></p><br>
+{% elif action_types(action_type) == action_types.UPDATE_PERSON_LAST_NAME %}
+    <p><em>Имя:</em> {{ old_first_name }}</p><br>
+    <p><em>Старая фамилия:</em> {{ old_last_name }}</p><br>
+    <p><em>Новая фамилия:</em> {{ new_last_name }}</p><br>
+    <p><em>Ссылка на ВК:</em> <a href="{{ vk_url }}">{{ vk_url }}</a></p><br>
+{% endif %}
+
+{% if committees|length == 1 %}
+    <p><em>Комитет:</em> {{ committees[0] }}</p><br>
+{% else %}
+    <p><em>Комитеты:</em> {{ committees|join(', ') }}</p><br>
+{% endif %}

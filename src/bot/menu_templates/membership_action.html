@@ -1,0 +1,17 @@
+{% set first_name = old_data.get('first_name') %}
+{% set last_name = old_data.get('last_name') %}
+{% set vk_url = "https://vk.com/id{}".format(old_data.get('vk_id')) %}
+{% set old_committees = [] %}
+{% for committee in old_data.get('committees') %}
+    {% do old_committees.append(committee.name) %}
+{% endfor %}
+{% set new_committees = [] %}
+{% for committee in new_data.get('committees') %}
+    {% do new_committees.append(committee.name) %}
+{% endfor %}
+<p><em>Имя и фамилия:</em> {{ first_name }} {{ last_name }}</p><br>
+<p><em>Ссылка на ВК:</em> <a href="{{ vk_url }}">{{ vk_url }}</a></p><br>
+
+<p><em>Старые комитеты:</em> {{ old_committees | join(', ')}}</p><br>
+<p><em>Новые комитеты:</em> {{ new_committees | join(', ') }}</p><br>
+

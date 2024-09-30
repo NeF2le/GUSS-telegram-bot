@@ -4,49 +4,104 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="00ffe4dc-d976-487f-9ef7-0fc507f634f4" name="Changes" comment="add orm models">
-      <change afterPath="$PROJECT_DIR$/../../Desktop/Папка/mbot/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bot/handlers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bot/handlers/callback_queries.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bot/keyboards/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bot/keyboards/callbacks.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bot/keyboards/reply.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bot/middlewares/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bot/middlewares/resources.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bot/template_engine.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bot/templates/add_person.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bot/templates/delete_person.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bot/templates/person.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bot/templates/person_committee.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bot/templates/person_points.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bot/templates/select_committee.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/bot/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/context.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/database/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/database/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/database/queries/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/database/queries/orm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/database/queries/orm_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/database/schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exceptions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+    <list default="true" id="00ffe4dc-d976-487f-9ef7-0fc507f634f4" name="Changes" comment="add many files">
+      <change afterPath="$PROJECT_DIR$/secrets/google_creds.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/telegraph_session.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/vk_session.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/callbacks/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/callbacks/action_logs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/callbacks/menu.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/custom_dispatcher.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/handlers/add_event_registration_table.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/handlers/comment_for_update_points.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/handlers/core.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/handlers/process_event_registration_tables.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/handlers/process_protocols.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/handlers/update_person_name.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/handlers/vk_activities_check.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/action_logs.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/add_person.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/add_person_committee.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/add_reg_table.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/comment_for_update_points.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/delete_person.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/delete_person_action.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/insert_person_action.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/membership_action.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/person.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/person_committee.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/person_points.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/points_in_category.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/protocol.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/protocol_process_result.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/reg_table.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/reg_table_process_result.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/reg_tables.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/reg_tables_main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/select_committee.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/select_event_type.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/update_first_name.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/update_last_name.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/update_person_name_action.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/menu_templates/update_person_points_action.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/utils/document_process.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/utils/find_best_matched_person.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/utils/log_action.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bot/utils/points_declension.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/models/event_registration_table.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/models/event_registration_table_person.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/models/event_type.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/database/models/protocol_person.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logging.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logging_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/schemas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/person_name.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vk_activities_checker.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/GUSS-telegram-bot.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/config_reader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/bot/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/activity.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/activity.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/audit_log.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/audit_log.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/base.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/category.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/category.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/committee.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/committee.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/committee_membership.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/committee_membership.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/person.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/person.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/person_points.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/person_points.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/post.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/post.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/vk_activity.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/vk_activity.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/queries/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/queries/core.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bot/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/bot/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bot/handlers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/bot/handlers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bot/handlers/callback_queries.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bot/keyboards/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/bot/keyboards/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bot/keyboards/callbacks.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/bot/utils/callback_fabrics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bot/keyboards/reply.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bot/middlewares/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/bot/middlewares/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bot/middlewares/resources.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/bot/middlewares/resources_middleware.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bot/template_engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/bot/template_engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bot/templates/add_person.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bot/templates/delete_person.html" beforeDir="false" afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bot/templates/person.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bot/templates/person_committee.html" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bot/templates/person_points.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/bot/menu_templates/table_process_result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bot/templates/select_committee.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bot/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/bot/utils/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config_reader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/config_reader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/activity.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/audit_log.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/audit_log.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/category.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/category.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/committee.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/committee.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/committee_membership.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/membership.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/person.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/person.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/person_points.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/person_points.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/post.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models/vk_activity.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models/vk_activity.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/queries/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/queries/core.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/queries/orm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/queries/orm_utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/schemas.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +111,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Python Script" />
       </list>
     </option>
@@ -76,24 +132,37 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.exceptions.executor&quot;: &quot;Run&quot;,
+    &quot;Python.google_session.executor&quot;: &quot;Run&quot;,
+    &quot;Python.inline.executor&quot;: &quot;Debug&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.menu.executor&quot;: &quot;Run&quot;,
     &quot;Python.orm.executor&quot;: &quot;Debug&quot;,
     &quot;Python.orm_utils.executor&quot;: &quot;Run&quot;,
+    &quot;Python.startup.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.telegraph_session.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.vk_session.executor&quot;: &quot;Run&quot;,
+    &quot;Python.vk_update_points_script.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Users/User/Desktop/Папка/mbot&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;
+    &quot;last_opened_file_path&quot;: &quot;D:/Users/User/PythonProject/GUSS-telegram-bot/src/bot/templates&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Users\User\PythonProject\GUSS-telegram-bot\src\bot\templates" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Users\User\PythonProject\GUSS-telegram-bot\src\bot\handlers" />
-      <recent name="D:\Users\User\PythonProject\GUSS-telegram-bot\src\database" />
-      <recent name="D:\Users\User\PythonProject\GUSS-telegram-bot" />
       <recent name="D:\Users\User\PythonProject\GUSS-telegram-bot\src" />
-      <recent name="D:\Users\User\PythonProject\GUSS-telegram-bot\src\models" />
+      <recent name="D:\Users\User\PythonProject\GUSS-telegram-bot\src\utils" />
+      <recent name="D:\Users\User\PythonProject\GUSS-telegram-bot\src\bot\handlers" />
+      <recent name="D:\Users\User\PythonProject\GUSS-telegram-bot\secrets" />
+      <recent name="D:\Users\User\PythonProject\GUSS-telegram-bot\src\api" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -136,14 +205,23 @@
       <option name="project" value="LOCAL" />
       <updated>1720297513126</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add many files">
+      <option name="closed" value="true" />
+      <created>1721469765708</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1721469765708</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding files" />
     <MESSAGE value="add .gitignore" />
     <MESSAGE value="add orm models" />
-    <option name="LAST_COMMIT_MESSAGE" value="add orm models" />
+    <MESSAGE value="add many files" />
+    <option name="LAST_COMMIT_MESSAGE" value="add many files" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
