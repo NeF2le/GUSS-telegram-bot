@@ -4,7 +4,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from src.enums import MenuName
 
-template_folder = os.path.abspath("bot/menu_templates")
+template_folder = os.path.abspath("src/bot/menu_templates")
 
 env = Environment(
     loader=FileSystemLoader(template_folder),
