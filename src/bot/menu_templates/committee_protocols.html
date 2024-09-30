@@ -1,0 +1,7 @@
+<b>{{committee_talisman}} {{committee_name}} {{committee_talisman}}</b>
+
+{% if protocols -%}
+<b>Нажми на протокол, чтобы увидеть информацию о нем</b>
+{% else -%}
+<b>У {{committee_name}} нет проверенных протоколов</b>
+{% endif -%}
