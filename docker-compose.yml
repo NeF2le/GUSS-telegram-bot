@@ -8,7 +8,7 @@ services:
       - pgdata:/var/lib/postgresql/data
     restart: on-failure
     ports:
-      - '5433:5432'
+      - '5432:5432'
   bot:
     build: .
     command: sh -c "alembic upgrade head && python -m src/main.py"
