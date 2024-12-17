@@ -11,7 +11,15 @@ services:
       - '5432:5432'
   bot:
     build: .
-    command: sh -c "alembic upgrade head && python -m src.main"
+    command: sh -c "until pg_isready -h db -p 5432; do sleep 1; done && alembic upgrade head && python -m src.main"
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+    restart: always
+  vk_activity_checker:
+    build: .
+    command: sh -c "until pg_isready -h db -p 5432; do sleep 1; done && python -m src.vk_activity_checker"
     env_file:
       - ./.env
     depends_on:
