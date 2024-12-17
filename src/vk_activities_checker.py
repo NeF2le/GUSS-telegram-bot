@@ -23,8 +23,8 @@ class VkActivitiesChecker:
         while self.task_running:
             tasks = [self.check_activities(domain) for domain in settings.VK_GROUP_DOMAINS]
             await asyncio.gather(*tasks)
-            await asyncio.sleep(settings.VK_ACTIVITIES_CHECKER_TIMEOUT)
             logger.info('VkActivityChecker has successfully iterated')
+            await asyncio.sleep(settings.VK_ACTIVITIES_CHECKER_TIMEOUT)
 
     async def check_activities(self, domain: str | int):
         activities = await self.process_group(domain)
