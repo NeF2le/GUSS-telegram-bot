@@ -30,15 +30,16 @@ class VkActivitiesChecker:
         activities = await self.process_group(domain)
 
         # Create a DataFrame and drop duplicates because a one person can only have one activity under a post
-        activities_df = pd.DataFrame(activities).drop_duplicates(subset=['vk_id', 'post_url', 'activity_type'])
+        if activities:
+            activities_df = pd.DataFrame(activities).drop_duplicates(subset=['vk_id', 'post_url', 'activity_type'])
 
-        persons = await self.db.get_persons_ids_and_vk_ids()
-        persons_df = pd.DataFrame(persons)
+            persons = await self.db.get_persons_ids_and_vk_ids()
+            persons_df = pd.DataFrame(persons)
 
-        merged_df = pd.merge(activities_df, persons_df, on='vk_id', how='inner').drop(columns='vk_id')
-        promotion_category = await self.db.get_category(name='Пиар ГУСС')
+            merged_df = pd.merge(activities_df, persons_df, on='vk_id', how='inner').drop(columns='vk_id')
+            promotion_category = await self.db.get_category(name='Пиар ГУСС')
 
-        await self.process_new_records(merged_df, promotion_category.id)
+            await self.process_new_records(merged_df, promotion_category.id)
 
     async def process_new_records(self, new_records: DataFrame, promotion_category_id: int):
         for _, row in new_records.iterrows():
