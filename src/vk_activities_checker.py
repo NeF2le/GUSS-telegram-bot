@@ -21,14 +21,15 @@ class VkActivitiesChecker:
 
     async def process_groups(self):
         while self.task_running:
+            print(settings.VK_GROUP_DOMAINS)
             tasks = [self.check_activities(domain) for domain in settings.VK_GROUP_DOMAINS]
             await asyncio.gather(*tasks)
-            logger.info('VkActivityChecker has successfully iterated')
+            logger.info('VkActivityChecker is iterating')
             await asyncio.sleep(settings.VK_ACTIVITIES_CHECKER_TIMEOUT)
 
     async def check_activities(self, domain: str | int):
         activities = await self.process_group(domain)
-
+        print(activities)
         # Create a DataFrame and drop duplicates because a one person can only have one activity under a post
         if activities:
             activities_df = pd.DataFrame(activities).drop_duplicates(subset=['vk_id', 'post_url', 'activity_type'])
@@ -70,6 +71,7 @@ class VkActivitiesChecker:
             group_id = self.vk_api.get_group_id(domain)
             group_screen_name = self.vk_api.get_group_screen_name(domain)
             post_ids = self.vk_api.get_group_posts_ids(group_screen_name, count=settings.VK_GROUP_POSTS_COUNT)
+            print(post_ids)
 
             for post_id in post_ids:
                 post_url = self.vk_api.get_post_url(owner_id=-group_id, post_id=post_id)
