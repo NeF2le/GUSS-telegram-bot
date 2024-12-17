@@ -17,9 +17,9 @@ services:
     depends_on:
       - db
     restart: always
-  vk_activity_checker:
+  vk_activities_checker:
     build: .
-    command: sh -c "until pg_isready -h db -p 5432; do sleep 1; done && python -m src.vk_activity_checker"
+    command: sh -c "until pg_isready -h db -p 5432; do sleep 1; done && python -m src.vk_activities_checker"
     env_file:
       - ./.env
     depends_on:
