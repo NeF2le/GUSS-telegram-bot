@@ -1,4 +1,4 @@
-from pprint import pprint
+from datetime import date
 
 import requests
 from src.logging_ import logger
@@ -147,7 +147,7 @@ class VkAPI:
             data = response.json()
             result = []
             for obj in data.get('response').get('items'):
-                if obj.get('type') == 'post':
+                if obj.get('type') == 'post' and date.fromtimestamp(obj.get('date')) >= date(year=2024, month=8, day=1):
                     result.append(obj.get('id'))
             return result
 
