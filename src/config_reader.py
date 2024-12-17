@@ -12,7 +12,7 @@ class Settings(BaseSettings):
     BOT_TOKEN: SecretStr
     VK_TOKEN: SecretStr
     ADMIN_IDS: list[int]
-    VK_GROUP_DOMAINS: list[str | int]
+    VK_GROUP_DOMAINS: list[int]
     PAGINATION_LOAD_LIMIT: int
     VK_GROUP_POSTS_COUNT: int
     VK_LIKE_POINTS: int
