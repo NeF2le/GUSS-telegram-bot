@@ -220,8 +220,11 @@ class GoogleAPI:
                 person_full_name = row.get('ФИО')
                 status = row.get('Отметка')
                 if person_full_name and status:
-                    person = EventRegistrationTablePersonDTO(full_name=person_full_name, status=status)
-                    persons.append(person)
+                    try:
+                        person = EventRegistrationTablePersonDTO(full_name=person_full_name, status=status)
+                        persons.append(person)
+                    except ValueError:
+                        continue
             return persons
         except APIError:
             return []
