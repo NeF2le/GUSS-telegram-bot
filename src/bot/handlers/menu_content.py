@@ -158,7 +158,8 @@ async def person_menu(level: int, db: Database, menu_name: MenuName, person_id: 
     """
     person = await db.get_person(id=person_id, join_committees=True)
 
-    text = render_template(menu_name=menu_name, person_first_name=person.first_name, person_last_name=person.last_name)
+    text = render_template(menu_name=menu_name, person_first_name=person.first_name, person_last_name=person.last_name,
+                           person_vk_id=person.vk_id)
     kb = get_person_kb(level=level, person=person, committee_id=committee_id)
 
     return text, kb
