@@ -147,21 +147,23 @@ class Database:
             await session.merge(person)
             await session.commit()
 
-    async def insert_vk_activity(self, person_id: int, post_url: str, activity_type: ActivityType):
+    async def insert_vk_activity(self, person_id: int, post_url: str, activity_type: ActivityType) -> bool:
         """
         Inserts a new VK activity record into the database.
         :param person_id: The ID of the person associated with the VK activity.
         :param post_url: The URL of the VK post related to the activity.
         :param activity_type: The type of VK activity.
-        :return: None.
+        :return: True if OK else False.
         """
         async with self.session_factory() as session:
             try:
                 vk_activity = VkActivity(person_id=person_id, post_url=post_url, activity_type=activity_type)
                 session.add(vk_activity)
                 await session.commit()
+                return True
             except IntegrityError:
-                return
+                await session.rollback()
+                return False
 
     async def insert_audit_log(self, action_type: str, username: str, person_id: int | None = None,
                                old_data: dict | None = None, new_data: dict | None = None, comment: str | None = None):

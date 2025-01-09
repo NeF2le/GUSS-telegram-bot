@@ -23,8 +23,8 @@ class VkActivitiesChecker:
         while self.task_running:
             tasks = [self.check_activities(domain) for domain in settings.VK_GROUP_DOMAINS]
             await asyncio.gather(*tasks)
-            logger.info('VkActivityChecker is iterating')
             await asyncio.sleep(settings.VK_ACTIVITIES_CHECKER_TIMEOUT)
+            logger.info('VkActivityChecker is iterating')
 
     async def check_activities(self, domain: str | int):
         activities = await self.process_group(domain)
@@ -47,9 +47,7 @@ class VkActivitiesChecker:
             activity_type = row['activity_type']
             context_data = ContextData(person_id=person_id, comment=f'Лайк поста в ВК. Ссылка {post_url}')
 
-            try:
-                await self.db.insert_vk_activity(person_id, post_url, activity_type)
-
+            if await self.db.insert_vk_activity(person_id, post_url, activity_type):
                 if activity_type == ActivityType.VK_LIKE:
                     context_data.comment = f'Лайк поста в ВК. Ссылка {post_url}'
                     async with log_action(db=self.db, action_type=ActionType.UPDATE_PERSON_POINTS, username='ГУСС-топ',
@@ -60,8 +58,6 @@ class VkActivitiesChecker:
                     async with log_action(db=self.db, action_type=ActionType.UPDATE_PERSON_POINTS, username='ГУСС-топ',
                                           context_data=context_data):
                         await self.db.update_person_points(person_id, promotion_category_id, settings.VK_COMMENT_POINTS)
-            except Exception as e:
-                logger.error(f"Ошибка при обновлении активности пользователя {person_id} по посту {post_url}: {e}")
 
     async def process_group(self, domain: str | int) -> list[dict[str, Any]]:
         group_data = []
