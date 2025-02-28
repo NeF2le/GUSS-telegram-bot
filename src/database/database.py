@@ -524,6 +524,8 @@ class Database:
         """
         async with self.session_factory() as session:
             person_points = await self.get_person_points(person_id=person_id, category_id=category_id)
+            if person_points is None:
+                return
             person_points.points_value += points_value
             session.add(person_points)
             await session.commit()
