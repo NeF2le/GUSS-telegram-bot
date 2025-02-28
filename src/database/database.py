@@ -441,7 +441,7 @@ class Database:
         """
         async with self.session_factory() as session:
             query = select(PersonPoints).filter_by(**kwargs)
-            person_points = (await session.execute(query)).scalars().one_or_none()
+            person_points = (await session.execute(query)).scalar_one_or_none()
             return person_points
 
     async def get_audit_log(self, **kwargs) -> AuditLog | None:
@@ -523,12 +523,13 @@ class Database:
         :return: None.
         """
         async with self.session_factory() as session:
-            person_points = await self.get_person_points(person_id=person_id, category_id=category_id)
-            if person_points is None:
+            try:
+                person_points = await self.get_person_points(person_id=person_id, category_id=category_id)
+                person_points.points_value += points_value
+                session.add(person_points)
+                await session.commit()
+            except AttributeError:
                 return
-            person_points.points_value += points_value
-            session.add(person_points)
-            await session.commit()
 
     async def update_person_name(self, person_id: int, new_first_name: str | None = None,
                                  new_last_name: str | None = None):
